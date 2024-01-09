@@ -32,7 +32,12 @@
         document.addEventListener("DOMContentLoaded", function () {
             var video = document.getElementById('video');
             if (Hls.isSupported()) {
-                var hls = new Hls();
+                var hls = new Hls({
+                    maxBufferLength: 30, // seconds
+                    maxMaxBufferLength: 60,
+                    liveSyncDurationCount: 3,
+                    liveMaxLatencyDurationCount: 10
+                });
                 hls.loadSource('/stream.m3u8');
                 hls.attachMedia(video);
                 hls.on(Hls.Events.MANIFEST_PARSED, function () {
