@@ -215,3 +215,13 @@ Open a web browser and navigate to the Tailscale IP of your Raspberry Pi, e.g., 
 - Ensure the camera module is properly connected and recognized by the Raspberry Pi.
 - Check the network connection and settings if the stream is not accessible.
 - For issues with autoplay in browsers, verify that the video is muted.
+
+## Further updates
+
+For scalability purpose, let's imagine you have multiples camera it could be interesting
+to investigate on how to set this install using Balena OS and tailscale to be able to monitor
+and deploy multiple streamer at the same time.
+
+[https://www.balena.io/](https://www.balena.io/)
+
+[https://forum.tailscale.com/t/balena-os-and-tailscale/1860/2](https://forum.tailscale.com/t/balena-os-and-tailscale/1860/2)
