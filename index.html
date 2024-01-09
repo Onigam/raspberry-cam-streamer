@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Camera stream page</title>
+    <style>
+        body {
+            text-align: center;
+            /* Center align the content */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #video {
+            max-width: 100%;
+            /* Video width scales to 100% of container width */
+            height: auto;
+            /* Maintain aspect ratio */
+            max-height: 90vh;
+            /* Limit the height to 90% of the viewport height */
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+
+<body>
+    <h1>Camera du Salon</h1>
+    <video id="video" controls autoplay muted></video>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var video = document.getElementById('video');
+            if (Hls.isSupported()) {
+                var hls = new Hls();
+                hls.loadSource('/stream.m3u8');
+                hls.attachMedia(video);
+                hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                    video.play();
+                });
+            }
+            else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = '/stream.m3u8';
+                video.addEventListener('canplay', function () {
+                    video.play();
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

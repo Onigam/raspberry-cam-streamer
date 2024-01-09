@@ -1,0 +1,11 @@
+[Unit]
+Description=Camera Stream Service
+After=network.target
+
+[Service]
+ExecStart=/home/<your_user>/stream.sh
+User=<your_user>
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

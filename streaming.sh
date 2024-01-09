@@ -1,0 +1,2 @@
+#!/bin/bash
+raspivid -o - -t 0 -w 1920 -h 1080 -fps 24 | cvlc -vvv stream:///dev/stdin --sout '#standard{access=livehttp{seglen=5,delsegs=true,numsegs=10,index=/var/www/html/stream.m3u8,index-url=http://[Your-Device-IP]/stream-########.ts},mux=ts{use-key-frames},dst=/var/www/html/stream-########.ts}' --ttl 12 --sout-keep
