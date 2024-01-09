@@ -80,7 +80,7 @@ Ensure your have the correct permissions to write in `/var/www/html/`
 You can change the ownership of the `/var/www/html/` directory to the user running the VLC command. Replace pi in the command below with the username if it's different:
 
 ```bash
-sudo chown -R pi:pi /var/www/html/
+sudo chown -R <your_user>:<your_user> /var/www/html/
 ```
 
 ### Configure Apache for HLS Streaming
