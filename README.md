@@ -65,7 +65,7 @@ Add the following content to convert the stream to `.m3u8` format, we will put i
 
 ```bash
 #!/bin/bash
-raspivid -o - -t 0 -w 1920 -h 1080 -fps 24 | cvlc -vvv stream:///dev/stdin --sout '#standard{access=livehttp{seglen=5,delsegs=true,numsegs=10,index=/var/www/html/stream.m3u8,index-url=http://[Your-Device-IP]/stream-########.ts},mux=ts{use-key-frames},dst=/var/www/html/stream-########.ts}' --ttl 12 --sout-keep
+raspivid -o - -t 0 -w 1280 -h 720 -fps 15 | cvlc stream:///dev/stdin --sout '#standard{access=http,mux=ts,dst=:8160}' :demux=h264 --sout '#standard{access=livehttp{seglen=10,delsegs=true,numsegs=20,index=/var/www/html/stream.m3u8,index-url=http://100.123.13.98/stream-########.ts},mux=ts{use-key-frames},dst=/var/www/html/stream-########.ts}' --ttl 12 --sout-keep
 ```
 
 Make the script executable:
