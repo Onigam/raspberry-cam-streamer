@@ -22,8 +22,11 @@ jobs:
       - uses: coderabbitai/ai-pr-reviewer@latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
         with:
           debug: false
           review_simple_changes: false
           review_comment_lgtm: false
+          openai_base_url: "https://api.mistral.ai/v1"
+          openai_light_model: "mistral-tiny"
+          openai_heavy_model: "mistral-small"
