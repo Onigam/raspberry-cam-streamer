@@ -32,3 +32,5 @@ jobs:
           openai_base_url: "https://api.mistral.ai/v1"
           openai_light_model: "mistral-small"
           openai_heavy_model: "mistral-small"
+          summary_token_limits: 32000
+          review_token_limits: 32000
