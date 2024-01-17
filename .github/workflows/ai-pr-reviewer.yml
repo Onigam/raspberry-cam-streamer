@@ -5,7 +5,8 @@ permissions:
   pull-requests: write
 
 on:
-  pull_request:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
   pull_request_review_comment:
     types: [created]
 
@@ -20,14 +21,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: AI-based PR Reviewer & Summarizer with Mistral 8x7B Chat Capabilities
-        uses: Onigam/ai-mistral-pr-reviewer@mistralai-support-marketplace
+        uses: Onigam/ai-mistral-pr-reviewer@0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
         with:
           debug: false
-          review_simple_changes: false
-          review_comment_lgtm: false
+          review_simple_changes: true
+          review_comment_lgtm: true
           openai_base_url: "https://api.mistral.ai/v1"
-          openai_light_model: "mistral-tiny"
+          openai_light_model: "mistral-small"
           openai_heavy_model: "mistral-small"
