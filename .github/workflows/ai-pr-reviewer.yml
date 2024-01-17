@@ -19,7 +19,8 @@ jobs:
   review:
     runs-on: ubuntu-latest
     steps:
-      - uses: Onigam/ai-mistral-pr-reviewer
+      - name: AI-based PR Reviewer & Summarizer with Mistral 8x7B Chat Capabilities
+        uses: Onigam/ai-mistral-pr-reviewer@mistralai-support-marketplace
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
