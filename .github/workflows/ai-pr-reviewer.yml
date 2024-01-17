@@ -19,7 +19,7 @@ jobs:
   review:
     runs-on: ubuntu-latest
     steps:
-      - uses: onigam/ai-mistral-pr-reviewer@latest
+      - uses: Onigam/ai-mistral-pr-reviewer
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
